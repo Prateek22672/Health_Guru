@@ -428,3 +428,16 @@ nav .desktop-nav {
     }
     
 }
+
+.offcanvas-body a{
+    display: flex;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    color: black;
+    font-size: 30px;
+    font-size: 600;
+    margin-left: 49px;
+    margin-top: -50px;
+    padding-top: 72px;
+}
+
