@@ -20,15 +20,21 @@ if (splashScreen) {
 // DISPLAY USER GREETING
 // ============================
 
-const name = localStorage.getItem('userName');  // Retrieve name from localStorage
 const greetingElement = document.getElementById('allx');
 
-if (greetingElement && name) {
-    greetingElement.innerHTML = `Hello ${name},<br>`; 
+// Function to display greeting
+function displayGreeting() {
+    const name = localStorage.getItem('userName') || "Guest";
+    if (greetingElement) {
+        greetingElement.innerHTML = `Hello ${name},<br>`;
+    }
 }
 
+// Display greeting on page load
+displayGreeting();
+
 // ============================
-// CREATE BUTTON NAVIGATION
+// BUTTON NAVIGATION
 // ============================
 
 const createButton = document.getElementById("myButton");
@@ -40,42 +46,64 @@ if (createButton) {
 }
 
 // ============================
-// GOOGLE SIGN-IN LOGIC (Optimized)
+// GOOGLE SIGN-IN LOGIC
 // ============================
 
-// Use only one `handleCredentialResponse` function
 function handleCredentialResponse(response) {
     console.log("Google OAuth Token:", response.credential);
 
-    // Decode the JWT to get user info
-    const data = jwt_decode(response.credential);  
-    console.log("Google User Data:", data);
+    try {
+        // Decode the JWT token
+        const data = jwt_decode(response.credential);
+        console.log("Google User Data:", data);
 
-    // Extract and display user info
-    const userName = data.name || "Guest"; 
-    const userEmail = data.email || "N/A"; 
-    const userImage = data.picture || ""; 
+        // Extract user details
+        const userName = data.name || "Guest";
+        const userEmail = data.email || "N/A";
+        const userImage = data.picture || "";
 
-    // Display user info dynamically
-    const userInfo = document.createElement('div');
-    userInfo.innerHTML = `
-        <h4>Welcome, ${userName}</h4>
-        <p>Email: ${userEmail}</p>
-        ${userImage ? `<img src="${userImage}" alt="Profile Image" width="100" />` : ""}
-    `;
-    
+        // Store in localStorage
+        localStorage.setItem("userName", userName);
+        localStorage.setItem("userEmail", userEmail);
+
+        // Update greeting dynamically
+        displayGreeting();
+
+        // Display user info
+        displayUserInfo(userName, userEmail, userImage);
+
+    } catch (error) {
+        console.error("Error decoding Google token:", error);
+        alert("Failed to authenticate. Please try again.");
+    }
+}
+
+// ============================
+// DISPLAY USER INFO FUNCTION
+// ============================
+
+function displayUserInfo(name, email, image) {
     const container = document.querySelector('.container.main');
-    if (container) {
-        container.appendChild(userInfo);
+
+    // Remove existing user info to avoid duplication
+    const existingInfo = document.getElementById("user-info");
+    if (existingInfo) {
+        existingInfo.remove();
     }
 
-    // Store user info in localStorage
-    localStorage.setItem("userEmail", userEmail);
-    localStorage.setItem("userName", userName);
+    // Create user info element
+    const userInfo = document.createElement('div');
+    userInfo.id = "user-info";
+    userInfo.style.marginTop = "20px";
+    userInfo.style.textAlign = "center";
+    userInfo.innerHTML = `
+        <h4>Welcome, ${name}</h4>
+        <p>Email: ${email}</p>
+        ${image ? `<img src="${image}" alt="Profile Image" width="100" />` : ""}
+    `;
 
-    // Update the greeting dynamically
-    if (greetingElement) {
-        greetingElement.innerHTML = `Hello ${userName},<br>`; 
+    if (container) {
+        container.appendChild(userInfo);
     }
 }
 
@@ -89,5 +117,5 @@ window.onload = function () {
         callback: handleCredentialResponse,
     });
 
-    google.accounts.id.prompt();  // Show the One Tap prompt
+    google.accounts.id.prompt();  // Display Google One Tap prompt
 };
