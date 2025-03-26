@@ -313,6 +313,11 @@ nav .desktop-nav {
     }
 
 
+    .logo {
+        margin-top: 15px;   
+        margin-left: -20px;
+}
+
 
     .x1 {
         display: none;
