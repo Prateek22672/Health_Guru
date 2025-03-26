@@ -103,7 +103,7 @@ nav .desktop-nav {
     width: 60px;                   
     opacity: 0.9;                      
     margin: 2.9px;
-    margin-top: -10px;
+    margin-top: 0px;
 }
 
 .logo:hover {
