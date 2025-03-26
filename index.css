@@ -4,6 +4,41 @@
 * {
     font-family: 'Poppins', sans-serif;
 }
+
+
+.google-btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 350px;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.google-btn:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.google-logo {
+    width: 20px;
+    height: 20px;
+}
+
  
 #splash-screen {
     position: fixed;
@@ -60,10 +95,32 @@
 
 body {
     margin: 0;
-background: linear-gradient(135deg, #000000, #3B0E0E);
+    background-color: #ff8a6d;
 
 
 }
+
+
+.g_id_signin {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.g_id_signin div {
+    width: 100%;
+}
+
+#user-info {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#user-info img {
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 
 
 
