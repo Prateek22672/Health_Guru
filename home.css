@@ -108,18 +108,19 @@ nav .desktop-nav {
 }
 
 .logo {
-    background: url('og.png') no-repeat;
-    display: block;
-    height: 50px;
-    background-size: 25px;
-    width: 40px;
-    opacity: 0.9;
-    margin: 2.9px;
+    background: url('og.png') no-repeat; 
+    display: block;                    
+    height: 50px;                       
+    background-size: 25px;                
+    width: 40px;                   
+    opacity: 0.9;                      
+    margin: 2.9px;                   
 }
 
 .logo:hover {
-    opacity: 1;
+    opacity: 1;                        
 }
+
 
 
 
