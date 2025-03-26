@@ -1,56 +1,107 @@
-function validateForm(event) {
-    event.preventDefault(); // Prevent the default form submission
-    
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('pass').value;
-    const errorMessage = document.getElementById('error-message');
+// ============================
+// SPLASH SCREEN LOGIC
+// ============================
 
-    if (password === "OG") {
-        // Store email in local storage
-        localStorage.setItem('email', email);
-        
-        // If the password is correct, hide any error messages and redirect
-        errorMessage.style.display = 'none';
-        window.location.href = 'home.html';
-    } else { 
-        // Display error message if the password is incorrect
-        errorMessage.style.display = 'block';
-        
-        // Optionally, clear the password field after an incorrect attempt
-        document.getElementById('pass').value = '';
-    }
-}
-
-
- 
-
-
-// Add event listener for Enter key press on both fields
-document.getElementById('email').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        validateForm(event);
-    }
-});
-
-document.getElementById('pass').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        validateForm(event);
-    }
-});
-
-
-
-
-
+// Get the splash screen element by its ID
 const splashScreen = document.getElementById('splash-screen');
 
-// Always show the splash screen on page load
-splashScreen.style.display = 'flex'; // Show splash screen
-
-setTimeout(() => {
-    splashScreen.style.opacity = '0'; // Start fading out
+// Check if the splash screen exists before applying logic
+if (splashScreen) {
+    splashScreen.style.display = 'flex'; // Initially show the splash screen
 
     setTimeout(() => {
-        splashScreen.style.display = 'none'; // Hide splash screen
-    }, 1000); // Duration for fade-out transition
-}, 1000); // Duration to show splash screen
+        splashScreen.style.opacity = '0'; // Begin fading out by setting opacity to 0
+
+        setTimeout(() => {
+            splashScreen.style.display = 'none'; // After fading out, completely hide the splash screen
+        }, 1000); // This timeout should match the CSS transition duration (1s fade-out)
+    }, 1600); // The splash screen remains visible for 1.6 seconds before starting the fade-out
+}
+
+// ============================
+// PAGE NAVIGATION LOGIC
+// ============================
+
+// Check if the 'pages' object exists and is valid before using it
+/*if (typeof pages === 'object' && pages !== null) {
+    // Iterate over each key in the 'pages' object
+    /*Object.keys(pages).forEach(buttonId => {
+        // Get the button element by its ID
+        const btn = document.getElementById(buttonId);
+        
+        // Ensure the button exists before adding an event listener
+        if (btn) {
+            btn.addEventListener('click', function () {
+                // Redirect the user to the corresponding page URL from the 'pages' object
+                window.location.href = pages[buttonId];
+            });
+        }
+    });
+} */
+
+// ============================
+// DISPLAY USER GREETING
+// ============================
+
+// Retrieve the user's name from localStorage
+const name = localStorage.getItem('name');
+
+// Get the greeting element where we will display the name
+const greetingElement = document.getElementById('allx');
+
+// If the name exists and the element is found, update the greeting message
+if (greetingElement && name) {
+    greetingElement.innerHTML = `Hello ${name},<br>`; // Display a friendly greeting
+}
+
+// ============================
+// CREATE BUTTON NAVIGATION
+// ============================
+
+// Get the button that will navigate to the "create.html" page
+const createButton = document.getElementById("myButton");
+
+// Ensure the button exists before attaching an event listener
+if (createButton) {
+    createButton.addEventListener("click", function() {
+        window.location.href = "create.html"; // Redirect to "create.html" when clicked
+    });
+}
+
+// Handle Google OAuth response
+function handleCredentialResponse(response) {
+    console.log("Google OAuth Token:", response.credential);
+
+    // Verify the token with Google API
+    fetch(`https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${response.credential}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log("Google User Data:", data);
+
+            // Store user info in localStorage for later use
+            localStorage.setItem("userEmail", data.email);
+            localStorage.setItem("userName", data.name);
+            localStorage.setItem("userPicture", data.picture);
+
+            // Redirect to the next page
+            window.location.href = "home.html";  // Change to your desired page
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+// Validate Form Submission
+function validateForm(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("pass").value;
+
+    // Sample validation
+    if (email === "prateek999" && password === "prateek") {
+        alert("Login successful!");
+        window.location.href = "dashboard.html";  // Redirect for form-based login
+    } else {
+        const errorMessage = document.getElementById("error-message");
+        errorMessage.style.display = "block";
+    }
+}
