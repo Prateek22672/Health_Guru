@@ -99,7 +99,7 @@ function validateForm(event) {
     // Sample validation
     if (email === "prateek999" && password === "prateek") {
         alert("Login successful!");
-        window.location.href = "dashboard.html";  // Redirect for form-based login
+        window.location.href = "home.html";  // Redirect for form-based login
     } else {
         const errorMessage = document.getElementById("error-message");
         errorMessage.style.display = "block";
