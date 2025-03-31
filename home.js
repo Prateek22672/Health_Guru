@@ -17,14 +17,26 @@ if (splashScreen) {
 }
 
 // ============================
+// LOCAL STORAGE HELPER FUNCTION
+// ============================
+
+function safeGetItem(key) {
+    try {
+        return localStorage.getItem(key) || null;
+    } catch (error) {
+        console.error("LocalStorage access error:", error);
+        return null;
+    }
+}
+
+// ============================
 // DISPLAY USER GREETING
 // ============================
 
 const greetingElement = document.getElementById('allx');
 
-// Function to display greeting
 function displayGreeting() {
-    const name = localStorage.getItem('userName') || "Guest";
+    const name = safeGetItem('userName') || "Guest";
     if (greetingElement) {
         greetingElement.innerHTML = `Hello ${name},<br>`;
     }
@@ -53,7 +65,7 @@ function handleCredentialResponse(response) {
     console.log("Google OAuth Token:", response.credential);
 
     try {
-        // Decode the JWT token
+        // Decode the JWT token using jwt-decode library
         const data = jwt_decode(response.credential);
         console.log("Google User Data:", data);
 
@@ -83,39 +95,48 @@ function handleCredentialResponse(response) {
 // ============================
 
 function displayUserInfo(name, email, image) {
-    const container = document.querySelector('.container.main');
+    let userInfo = document.getElementById("user-info");
 
-    // Remove existing user info to avoid duplication
-    const existingInfo = document.getElementById("user-info");
-    if (existingInfo) {
-        existingInfo.remove();
+    if (!userInfo) {
+        userInfo = document.createElement('div');
+        userInfo.id = "user-info";
+        userInfo.style.marginTop = "20px";
+        userInfo.style.textAlign = "center";
+
+        const container = document.querySelector('.container.main');
+        if (container) {
+            container.appendChild(userInfo);
+        }
     }
 
-    // Create user info element
-    const userInfo = document.createElement('div');
-    userInfo.id = "user-info";
-    userInfo.style.marginTop = "20px";
-    userInfo.style.textAlign = "center";
+    // Update content only (avoid duplication)
     userInfo.innerHTML = `
         <h4>Welcome, ${name}</h4>
         <p>Email: ${email}</p>
         ${image ? `<img src="${image}" alt="Profile Image" width="100" />` : ""}
     `;
+}
 
-    if (container) {
-        container.appendChild(userInfo);
-    }
+// ============================
+// LOGOUT LOGIC
+// ============================
+
+const logoutButton = document.getElementById("logout-button");
+
+if (logoutButton) {
+    logoutButton.addEventListener("click", () => {
+        localStorage.clear();
+        window.location.href = "index.html";  // Redirect to login or splash screen
+    });
 }
 
 // ============================
 // GOOGLE AUTH INITIALIZATION
 // ============================
 
-window.onload = function () {
-    google.accounts.id.initialize({
-        client_id: "YOUR_GOOGLE_CLIENT_ID",  // Replace with your Google Client ID
-        callback: handleCredentialResponse,
-    });
+google.accounts.id.initialize({
+    client_id: "YOUR_GOOGLE_CLIENT_ID",  // Replace with your Google Client ID
+    callback: handleCredentialResponse,
+});
 
-    google.accounts.id.prompt();  // Display Google One Tap prompt
-};
+google.accounts.id.prompt();  // Display Google One Tap prompt
