@@ -41,7 +41,7 @@ const createButton = document.getElementById("myButton");
 
 if (createButton) {
     createButton.addEventListener("click", () => {
-        window.location.href = "create.html";
+        window.location.href = "consult.html";
     });
 }
 
