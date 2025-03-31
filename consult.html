@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=The+Nautigal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <title>HealthGuru | Prateek™</title>
+    <link rel="icon" href="og.png">
+    <link rel="stylesheet" href="consult.css">
+</head>
+<body>
+  
+<!-- Splash Screen -->
+<div id="splash-screen" style="display: flex; opacity: 1; transition: opacity 1s ease;">
+    <div class="splash-content">
+        <img src="og.png" alt="Loading...">
+
+        <div class="loader"></div>
+
+        <p>&copy; 2024 Prateek™. All rights reserved.</p>
+    </div>
+</div>
+
+    <div class="nav-container">
+        <nav>
+            <ul class="desktop-nav">
+                <li>
+                    <a href="home.html" class="logo"></a>
+                </li>
+                <div class="x1">
+                    <li><a class="store" href="home.html">Home</a></li>
+                    <div class="menu">
+                        <div class="tooltip_menu">
+                            <p>Browse Home</p>
+                            <a href="create.html">Consultation</a>
+                            <a href="create.html">Reminders</a>
+                            <a href="create.html">Medical Records</a>
+                            <a href="create.html">One Click Appointment</a>
+                        </div> 
+                    </div>
+                </div>
+                <div class="x1">
+                    <li><a class="store" href="create.html">Consultation</a></li>
+                    <div class="menu">
+                        <div class="tooltip_menu">
+                            <a href="create.html"><p>Explore All Consultation</p></a>
+                            <a href="create.html">Explore All Hospitals</a>
+                            <a href="create.html">Explore All Doctors</a>
+                        </div> 
+                    </div>
+                </div>
+                <div class="x1">
+                    <li><a class="store" href="create.html">Reminders</a></li>
+                    <div class="menu">
+                        <div class="tooltip_menu">
+                            <a href="create.html"><p>Explore All Reminders</p></a>
+                            <a href="create.html">Explore All Medications</a>
+                            <a href="create.html">Explore All Appointments</a>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="x1">
+                    <li><a class="store" href="create.html">Medical Records</a></li>
+                    <div class="menu">
+                        <div class="tooltip_menu">
+                            <a href="create.html"><p>Explore All Medical Records</p></a>
+                            <a href="create.html">Explore All illness categories</a>
+                            <a href="create.html">Explore All Clinical specialties</a>
+                        </div> 
+                    </div>
+                </div>
+                
+                <div class="x1">
+                    <li><a class="store" href="index.html">Logout</a></li>
+                    <div class="menu">
+                        <div class="tooltip_menu">
+                            <p>Logout Options</p>
+                            <a href="index.html">Redirect To Login Page</a>
+                            <a href="signup.html">Redirect To Create Account Page</a>
+                        </div> 
+                    </div>
+                </div>
+                <li>
+                    <a href="#" class="search"></a>
+                </li>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="demo">
+                    <div class="offcanvas-header">
+                        <button type="button" class="btn-close" style="margin-top: 20px;" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <a href="store.html">Home</a>
+                        <a href="mac.html">Consultation</a>
+                        <a href="ipad.html">Reminders</a>
+                        <a href="iphone.html">Medications</a>
+                        <a href="watch.html">Appointments</a>
+                        <a href="pods.html">Medical Records</a>
+                        <a href="a.html">One Click Appointment</a>
+                        <a href="prateek.html">LogOut</a>
+                    </div>
+                </div>
+                
+                <input type="checkbox" id="menu-check" style="display: none;" data-bs-toggle="offcanvas" data-bs-target="#demo">
+                <label for="menu-check" class="checkbtn">
+                    <i class="fas fa-bars" style="margin-right: 10px;"></i>
+                </label>
+            </ul>
+        </nav>
+    </div>
+            </ul>
+        </nav>
+    </div>
+    <!--<div class="shop_early">Shop early. <a href="index.html" class="shop_now" style="color: white;">Shop now &gt;</a></div>-->
+
+    <div class="emi">
+        <!--<p>Get up to 24 months No Cost EMI on all iPhone models from most leading banks.§ <a href="iphone.html" >Learn more&gt;</a></p>-->
+    </div>
+
+    <!--<div class="shop_early2">Get 6 months of Apple Music free with your AirPods.** <a href="pods.html" class="shop_now2">Shop now &gt;</a></div>-->
+
+
+
+    <!--<h1 class="greetings">Welcome, <span id="user-email"></span>!</h1>-->
+    <h1 class="greetings">Personalized  for, <span id="user-name">Guest</span>!</h1>
+
+    <script>
+        document.getElementById('user-email').textContent = localStorage.getItem('email') || 'Guest';
+    </script>
+    
+    <!--<h1 class="sub_greetings">personalized  for </h1>-->
+    
+    <div class="container mt-5">
+    <h1 class="text-center mb-4 style="margin-top: -300px; "  ">Book Your Consultation</h1>
+
+    <!-- Step 1: Hospital Dropdown -->
+    <label for="hospital" class="form-label">Select Hospital:</label>
+    <select id="hospital" class="form-select mb-3" onchange="showDoctorDropdown()">
+        <option value="">Choose...</option>
+        <option value="Apollo">Apollo Hospital</option>
+        <option value="Fortis">Fortis Hospital</option>
+        <option value="Manipal">Manipal Hospital</option>
+        <option value="AIIMS">AIIMS</option>
+    </select>
+
+    <!-- Step 2: Doctor Dropdown (hidden by default) -->
+    <div id="doctor-container" style="display: none;">
+        <label for="doctor" class="form-label">Select Doctor:</label>
+        <select id="doctor" class="form-select mb-3" onchange="showTimeDropdown()">
+            <option value="">Choose...</option>
+        </select>
+    </div>
+
+    <!-- Step 3: Time Slot Dropdown (hidden by default) -->
+    <div id="time-container" style="display: none;">
+        <label for="time" class="form-label">Select Time Slot:</label>
+        <select id="time" class="form-select mb-3">
+            <option value="">Choose...</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+            <option value="12:00 PM">12:00 PM</option>
+            <option value="2:00 PM">2:00 PM</option>
+            <option value="4:00 PM">4:00 PM</option>
+        </select>
+    </div>
+
+    <!-- Booking Confirmation -->
+    <button id="book-btn" class="btn btn-primary w-100" onclick="bookAppointment()" style="display: none;">Book Appointment</button>
+
+    <div id="booking-details" class="alert alert-success mt-4" style="display: none;">
+        <h4>Booking Confirmation</h4>
+        <p><strong>Hospital:</strong> <span id="selected-hospital"></span></p>
+        <p><strong>Doctor:</strong> <span id="selected-doctor"></span></p>
+        <p><strong>Time Slot:</strong> <span id="selected-time"></span></p>
+    </div>
+</div>
+
+
+
+
+
+    
+    <p class="end">Copyright © 2024 HealthGuru &nbsp;|&nbsp; Prateek™. All rights reserved.</p>
+
+    <script src="home.js"></script>
+    
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jwt-decode/3.1.2/jwt-decode.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
