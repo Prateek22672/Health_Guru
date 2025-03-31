@@ -89,19 +89,22 @@ function handleCredentialResponse(response) {
         .catch(error => console.error('Error:', error));
 }
 
-// Validate Form Submission
+// ============================
+// VALIDATE FORM SUBMISSION
+// ============================
 function validateForm(event) {
-    event.preventDefault();
+    event.preventDefault();  // Prevent the form from submitting by default
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("pass").value;
+    const email = document.getElementById("email").value;  // Get the entered email
+    const password = document.getElementById("pass").value;  // Get the entered password
 
-    // Sample validation
-    if (email === "prateek999" && password === "prateek") {
+    // Allow any email but only accept "og" as the valid password
+    if (password === "og") {
         alert("Login successful!");
-        window.location.href = "home.html";  // Redirect for form-based login
+        window.location.href = "home.html";  // Redirect to the home page
     } else {
         const errorMessage = document.getElementById("error-message");
         errorMessage.style.display = "block";
+        errorMessage.textContent = "Invalid password! Try again.";
     }
 }
