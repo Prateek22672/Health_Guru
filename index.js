@@ -44,14 +44,25 @@ if (splashScreen) {
 // ============================
 
 // Retrieve the user's name from localStorage
-const name = localStorage.getItem('name');
+function validateForm(event) {
+    event.preventDefault(); // Prevent page reload
 
-// Get the greeting element where we will display the name
-const greetingElement = document.getElementById('allx');
+    const emailInput = document.getElementById("email").value.trim();
+    const passwordInput = document.getElementById("pass").value.trim();
+    const errorMessage = document.getElementById("error-message");
 
-// If the name exists and the element is found, update the greeting message
-if (greetingElement && name) {
-    greetingElement.innerHTML = `Hello ${name},<br>`; // Display a friendly greeting
+    // Simple validation (replace with actual authentication logic)
+    if (emailInput === "" || passwordInput === "og") {
+        errorMessage.style.display = "block"; // Show error message
+    } else {
+        errorMessage.style.display = "none"; 
+
+        // Store the email (HealthGuru ID) in localStorage
+        localStorage.setItem("name", emailInput);
+
+        // Redirect to home page after successful login
+        window.location.href = "home.html";
+    }
 }
 
 // ============================
