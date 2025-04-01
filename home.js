@@ -95,16 +95,15 @@ function handleCredentialResponse(response) {
 // ============================
 
 // Retrieve the name and email from local storage
-const name = localStorage.getItem('name');
-const email = localStorage.getItem('email');
-const greetingElement = document.getElementById('allx');
+document.addEventListener("DOMContentLoaded", function () {
+    const userName = localStorage.getItem("name");
+    const greetingElement = document.getElementById("user-name");
 
-// Display the appropriate greeting
-if (name) {
-    greetingElement.innerHTML = `Hello ${name},<br>`;
-} else if (email) {
-    greetingElement.innerHTML = `Hello ${email},<br>`;
-}
+    if (userName) {
+        greetingElement.textContent = userName; // Update greeting
+    }
+});
+
 
 // ============================
 // LOGOUT LOGIC
