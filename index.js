@@ -17,46 +17,46 @@ if (splashScreen) {
 // ============================
 // FORM VALIDATION LOGIC
 // ============================
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
 
     const emailInput = document.getElementById("email").value.trim();
     const passwordInput = document.getElementById("pass").value.trim();
     const errorMessage = document.getElementById("error-message");
 
-    // Simple validation (replace with actual authentication logic)
-    if (emailInput === "" || passwordInput === "") {
-        errorMessage.style.display = "block"; // Show error message for empty fields
+    if (!emailInput || !passwordInput) {
         errorMessage.textContent = "Please fill in all fields.";
+        errorMessage.style.display = "block";
     } else if (passwordInput === "og") {
-        errorMessage.style.display = "none"; // Hide error message
-        localStorage.setItem("name", emailInput); // Store email in localStorage
+        localStorage.setItem("userName", emailInput); // Store username/email
         window.location.href = "home.html"; // Redirect to home page
     } else {
-        errorMessage.style.display = "block"; // Show error message for invalid password
         errorMessage.textContent = "Invalid password! Try again.";
+        errorMessage.style.display = "block";
     }
 });
+
 
 // ============================
 // GOOGLE OAUTH LOGIC
 // ============================
+// GOOGLE OAUTH LOGIN
 function handleCredentialResponse(response) {
     console.log("Google OAuth Token:", response.credential);
 
-    // Verify the token with Google API
     fetch(`https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${response.credential}`)
         .then(res => res.json())
         .then(data => {
-            console.log("Google User Data:", data);
-            // Store user info in localStorage
-            localStorage.setItem("userEmail", data.email);
-            localStorage.setItem("userName", data.name);
-            localStorage.setItem("userPicture", data.picture);
-            window.location.href = "home.html"; // Redirect to the home page
+            if (data.email && data.name) {
+                localStorage.setItem("userEmail", data.email);
+                localStorage.setItem("userName", data.name);
+                window.location.href = "home.html"; // Redirect to home
+            } else {
+                alert("Google login failed. Try again.");
+            }
         })
-        .catch(error => console.error('Error:', error));
-}
+        .catch(error => {
+            console.error('Google Auth Error:', error);
+            alert("Google authentication failed.");
+        });
 
 // ============================
 // CREATE BUTTON NAVIGATION LOGIC
