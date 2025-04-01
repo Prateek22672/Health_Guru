@@ -94,27 +94,16 @@ function handleCredentialResponse(response) {
 // DISPLAY USER INFO FUNCTION
 // ============================
 
-function displayUserInfo(name, email, image) {
-    let userInfo = document.getElementById("user-info");
+// Retrieve the name and email from local storage
+const name = localStorage.getItem('name');
+const email = localStorage.getItem('email');
+const greetingElement = document.getElementById('allx');
 
-    if (!userInfo) {
-        userInfo = document.createElement('div');
-        userInfo.id = "user-info";
-        userInfo.style.marginTop = "20px";
-        userInfo.style.textAlign = "center";
-
-        const container = document.querySelector('.container.main');
-        if (container) {
-            container.appendChild(userInfo);
-        }
-    }
-
-    // Update content only (avoid duplication)
-    userInfo.innerHTML = `
-        <h4>Welcome, ${name}</h4>
-        <p>Email: ${email}</p>
-        ${image ? `<img src="${image}" alt="Profile Image" width="100" />` : ""}
-    `;
+// Display the appropriate greeting
+if (name) {
+    greetingElement.innerHTML = `Hello ${name},<br>`;
+} else if (email) {
+    greetingElement.innerHTML = `Hello ${email},<br>`;
 }
 
 // ============================
