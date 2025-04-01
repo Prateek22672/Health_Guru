@@ -30,16 +30,17 @@ function safeGetItem(key) {
 // ============================
 // DISPLAY USER GREETING
 // ============================
+// DISPLAY USER GREETING
 const greetingElement = document.getElementById('user-name');
 
 function displayGreeting() {
-    const name = safeGetItem('userName') || "Guest";
+    const name = localStorage.getItem('userName') || "Guest";
     if (greetingElement) {
-        greetingElement.textContent = name; // Update greeting with user's name
+        greetingElement.textContent = `Welcome, ${name}!`;
     }
 }
 
-// Display greeting on page load
+// Show greeting on page load
 displayGreeting();
 
 // ============================
