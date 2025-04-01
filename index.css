@@ -95,7 +95,7 @@
 
 body {
     margin: 0;
-    background-color: #ff8a6d;
+    background-color: #e3f2fd;
 
 
 }
@@ -345,11 +345,15 @@ span a:hover {
 
 @media only screen and (max-width: 768px) {
 
+/*
     body {
         width: 100%;
         border: none;
-        background-color: #000000; /* Changed to pure black */
+        background-color: #000000;  Changed to pure black 
     }
+    */
+    
+
 
     .splash-content video {
         width: 50%;
@@ -575,4 +579,40 @@ span a:hover {
         font-family: 'The Nautigal', cursive;
         color: white;
     }
+    
+   body {
+    background: linear-gradient(to right, #1e3c72, #2a5298); /* Soft blue gradient */
 }
+
+.wrapper {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+}
+
+.row {
+    background: black; /* Dark semi-transparent background for the login box */
+}
+
+.side-image {
+    background: black;
+    border-radius: 30px;
+}
+
+/* Google Sign-in Button */
+.g_id_signin {
+    background-color: black !important; /* Force white background */
+    border-radius: 8px !important;
+    padding: 10px !important;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.g_id_signin:hover {
+    background-color: black !important; /* Light gray on hover */
+}
+
+
+
+}
+
