@@ -1,7 +1,6 @@
 // ============================
 // SPLASH SCREEN LOGIC
 // ============================
-
 const splashScreen = document.getElementById('splash-screen');
 
 if (splashScreen) {
@@ -19,7 +18,6 @@ if (splashScreen) {
 // ============================
 // LOCAL STORAGE HELPER FUNCTION
 // ============================
-
 function safeGetItem(key) {
     try {
         return localStorage.getItem(key) || null;
@@ -32,13 +30,12 @@ function safeGetItem(key) {
 // ============================
 // DISPLAY USER GREETING
 // ============================
-
-const greetingElement = document.getElementById('allx');
+const greetingElement = document.getElementById('user-name');
 
 function displayGreeting() {
     const name = safeGetItem('userName') || "Guest";
     if (greetingElement) {
-        greetingElement.innerHTML = `Hello ${name},<br>`;
+        greetingElement.textContent = name; // Update greeting with user's name
     }
 }
 
@@ -48,7 +45,6 @@ displayGreeting();
 // ============================
 // BUTTON NAVIGATION
 // ============================
-
 const createButton = document.getElementById("myButton");
 
 if (createButton) {
@@ -60,30 +56,18 @@ if (createButton) {
 // ============================
 // GOOGLE SIGN-IN LOGIC
 // ============================
-
 function handleCredentialResponse(response) {
     console.log("Google OAuth Token:", response.credential);
 
     try {
-        // Decode the JWT token using jwt-decode library
         const data = jwt_decode(response.credential);
         console.log("Google User Data:", data);
 
-        // Extract user details
         const userName = data.name || "Guest";
-        const userEmail = data.email || "N/A";
-        const userImage = data.picture || "";
 
-        // Store in localStorage
         localStorage.setItem("userName", userName);
-        localStorage.setItem("userEmail", userEmail);
 
-        // Update greeting dynamically
-        displayGreeting();
-
-        // Display user info
-        displayUserInfo(userName, userEmail, userImage);
-
+        displayGreeting(); // Update greeting with user's name
     } catch (error) {
         console.error("Error decoding Google token:", error);
         alert("Failed to authenticate. Please try again.");
@@ -91,24 +75,8 @@ function handleCredentialResponse(response) {
 }
 
 // ============================
-// DISPLAY USER INFO FUNCTION
-// ============================
-
-// Retrieve the name and email from local storage
-document.addEventListener("DOMContentLoaded", function () {
-    const userName = localStorage.getItem("name");
-    const greetingElement = document.getElementById("user-name");
-
-    if (userName) {
-        greetingElement.textContent = userName; // Update greeting
-    }
-});
-
-
-// ============================
 // LOGOUT LOGIC
 // ============================
-
 const logoutButton = document.getElementById("logout-button");
 
 if (logoutButton) {
@@ -121,7 +89,6 @@ if (logoutButton) {
 // ============================
 // GOOGLE AUTH INITIALIZATION
 // ============================
-
 google.accounts.id.initialize({
     client_id: "YOUR_GOOGLE_CLIENT_ID",  // Replace with your Google Client ID
     callback: handleCredentialResponse,
