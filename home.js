@@ -37,7 +37,7 @@ function displayGreeting() {
     const name = localStorage.getItem('userName');
 // your code goes here
     if (greetingElement) {
-        greetingElement.textContent = `Welcome, ${name}!`;
+        greetingElement.textContent = ` ${name}!`;
     }
     else{
         greetingElement.textContent = `Welcome, Guest`;
