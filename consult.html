@@ -14,137 +14,122 @@
     <link rel="stylesheet" href="consult.css">
 </head>
 <body>
-  
 <!-- Splash Screen -->
-<div id="splash-screen" style="display: flex; opacity: 1; transition: opacity 1s ease;">
+<div id="splash-screen">
     <div class="splash-content">
         <img src="og.png" alt="Loading...">
-
         <div class="loader"></div>
-
         <p>&copy; 2024 Prateek™. All rights reserved.</p>
     </div>
 </div>
 
-    <div class="nav-container">
-        <nav>
-            <ul class="desktop-nav">
-                <li>
-                    <a href="home.html" class="logo"></a>
-                </li>
-                <div class="x1">
-                    <li><a class="store" href="home.html">Home</a></li>
-                    <div class="menu">
-                        <div class="tooltip_menu">
-                            <p>Browse Home</p>
-                            <a href="consult.html">Consultation</a>
-                            <a href="create.html">Reminders</a>
-                            <a href="create.html">Medical Records</a>
-                            <a href="create.html">One Click Appointment</a>
-                        </div> 
-                    </div>
+<div class="nav-container">
+    <nav>
+        <ul class="desktop-nav">
+            <li>
+                <a href="home.html" class="logo"></a>
+            </li>
+            <div class="x1">
+                <li><a class="store" href="home.html">Home</a></li>
+                <div class="menu">
+                    <div class="tooltip_menu">
+                        <p>Browse Home</p>
+                        <a href="consult.html">Consultation</a>
+                        <a href="create.html">Reminders</a>
+                        <a href="create.html">Medical Records</a>
+                        <a href="create.html">One Click Appointment</a>
+                    </div> 
                 </div>
-                <div class="x1">
-                    <li><a class="store" href="consult.html">Consultation</a></li>
-                    <div class="menu">
-                        <div class="tooltip_menu">
-                            <a href="consult.html"><p>Explore All Consultation</p></a>
-                            <a href="consult.html">Explore All Hospitals</a>
-                            <a href="consult.html">Explore All Doctors</a>
-                        </div> 
-                    </div>
+            </div>
+            <div class="x1">
+                <li><a class="store" href="consult.html">Consultation</a></li>
+                <div class="menu">
+                    <div class="tooltip_menu">
+                        <a href="consult.html"><p>Explore All Consultation</p></a>
+                        <a href="consult.html">Explore All Hospitals</a>
+                        <a href="consult.html">Explore All Doctors</a>
+                    </div> 
                 </div>
-                <div class="x1">
-                    <li><a class="store" href="create.html">Reminders</a></li>
-                    <div class="menu">
-                        <div class="tooltip_menu">
-                            <a href="create.html"><p>Explore All Reminders</p></a>
-                            <a href="create.html">Explore All Medications</a>
-                            <a href="create.html">Explore All Appointments</a>
-                        </div> 
-                    </div>
+            </div>
+            <div class="x1">
+                <li><a class="store" href="create.html">Reminders</a></li>
+                <div class="menu">
+                    <div class="tooltip_menu">
+                        <a href="create.html"><p>Explore All Reminders</p></a>
+                        <a href="create.html">Explore All Medications</a>
+                        <a href="create.html">Explore All Appointments</a>
+                    </div> 
                 </div>
+            </div>
 
-                <div class="x1">
-                    <li><a class="store" href="create.html">Medical Records</a></li>
-                    <div class="menu">
-                        <div class="tooltip_menu">
-                            <a href="create.html"><p>Explore All Medical Records</p></a>
-                            <a href="create.html">Explore All illness categories</a>
-                            <a href="create.html">Explore All Clinical specialties</a>
-                        </div> 
-                    </div>
+            <div class="x1">
+                <li><a class="store" href="create.html">Medical Records</a></li>
+                <div class="menu">
+                    <div class="tooltip_menu">
+                        <a href="create.html"><p>Explore All Medical Records</p></a>
+                        <a href="create.html">Explore All Illness Categories</a>
+                        <a href="create.html">Explore All Clinical Specialties</a>
+                    </div> 
                 </div>
-                
-                <div class="x1">
-                    <li><a class="store" href="index.html">Logout</a></li>
-                    <div class="menu">
-                        <div class="tooltip_menu">
-                            <p>Logout Options</p>
-                            <a href="index.html">Redirect To Login Page</a>
-                            <a href="signup.html">Redirect To Create Account Page</a>
-                        </div> 
-                    </div>
+            </div>
+            
+            <div class="x1">
+                <li><a class="store" href="index.html">Logout</a></li>
+                <div class="menu">
+                    <div class="tooltip_menu">
+                        <p>Logout Options</p>
+                        <a href="index.html">Redirect To Login Page</a>
+                        <a href="signup.html">Redirect To Create Account Page</a>
+                    </div> 
                 </div>
-                <li>
-                    <a href="#" class="search"></a>
-                </li>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="demo">
-                    <div class="offcanvas-header">
-                        <button type="button" class="btn-close" style="margin-top: 20px;" data-bs-dismiss="offcanvas"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <a href="store.html">Home</a>
-                        <a href="mac.html">Consultation</a>
-                        <a href="ipad.html">Reminders</a>
-                        <a href="iphone.html">Medications</a>
-                        <a href="watch.html">Appointments</a>
-                        <a href="pods.html">Medical Records</a>
-                        <a href="a.html">One Click Appointment</a>
-                        <a href="prateek.html">LogOut</a>
-                    </div>
+            </div>
+            <li>
+                <a href="#" class="search"></a>
+            </li>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="demo">
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close" style="margin-top: 20px;" data-bs-dismiss="offcanvas"></button>
                 </div>
-                
-                <input type="checkbox" id="menu-check" style="display: none;" data-bs-toggle="offcanvas" data-bs-target="#demo">
-                <label for="menu-check" class="checkbtn">
-                    <i class="fas fa-bars" style="margin-right: 10px;"></i>
-                </label>
-            </ul>
-        </nav>
-    </div>
-            </ul>
-        </nav>
-    </div>
-    <!--<div class="shop_early">Shop early. <a href="index.html" class="shop_now" style="color: white;">Shop now &gt;</a></div>-->
+                <div class="offcanvas-body">
+                    <a href="store.html">Home</a>
+                    <a href="mac.html">Consultation</a>
+                    <a href="ipad.html">Reminders</a>
+                    <a href="iphone.html">Medications</a>
+                    <a href="watch.html">Appointments</a>
+                    <a href="pods.html">Medical Records</a>
+                    <a href="a.html">One Click Appointment</a>
+                    <a href="prateek.html">LogOut</a>
+                </div>
+            </div>
+            
+            <input type="checkbox" id="menu-check" style="display: none;" data-bs-toggle="offcanvas" data-bs-target="#demo">
+            <label for="menu-check" class="checkbtn">
+                <i class="fas fa-bars" style="margin-right: 10px;"></i>
+            </label>
+        </ul>
+    </nav>
+</div>
 
-    <div class="emi">
-        <!--<p>Get up to 24 months No Cost EMI on all iPhone models from most leading banks.§ <a href="iphone.html" >Learn more&gt;</a></p>-->
-    </div>
+<div class="emi">
+    <!--<p>Get up to 24 months No Cost EMI on all iPhone models from most leading banks.§ <a href="iphone.html" >Learn more&gt;</a></p>-->
+</div>
 
-    <!--<div class="shop_early2">Get 6 months of Apple Music free with your AirPods.** <a href="pods.html" class="shop_now2">Shop now &gt;</a></div>-->
+<div class="container mt-5">
+    <h1 class="text-center mb-9" id="title">Book Your Consultation</h1>
+    <h1 class="greetings">Personalized for, <span id="user-name">Guest</span>!</h1>
 
-
-
-    <!--<h1 class="greetings">Welcome, <span id="user-email"></span>!</h1>-->
-    <h1 class="greetings">Personalized  for, <span id="user-name">Guest</span>!</h1>
-
-    <script>
-        document.getElementById('user-email').textContent = localStorage.getItem('email') || 'Guest';
-    </script>
-    
-    <!--<h1 class="sub_greetings">personalized  for </h1>-->
-    
-    <div class="container mt-5">
-    <h1 class="text-center mb-4 style="margin-top: -300px; "  ">Book Your Consultation</h1>
-
-    <!-- Step 1: Hospital Dropdown -->
     <label for="hospital" class="form-label">Select Hospital:</label>
-    <select id="hospital" class="form-select mb-3" onchange="showDoctorDropdown()">
+    <select id="hospital" class="form-select mb-3" onchange="showDepartmentDropdown()">
         <option value="">Choose...</option>
         <option value="Apollo">Apollo Hospital</option>
         <option value="Fortis">Fortis Hospital</option>
         <option value="Manipal">Manipal Hospital</option>
         <option value="AIIMS">AIIMS</option>
+    </select>
+
+    <label for="department" class="form-label">Select Department:</label>
+    <select id="department" class="form-select mb-3" onchange="showDoctorDropdown()">
+        <option value="">Choose...</option>
     </select>
 
     <!-- Step 2: Doctor Dropdown (hidden by default) -->
@@ -168,8 +153,11 @@
         </select>
     </div>
 
-    <!-- Booking Confirmation -->
-    <button id="book-btn" class="btn btn-primary w-100" onclick="bookAppointment()" style="display: none;">Book Appointment</button>
+<!-- Booking Confirmation -->
+<div class="button-container">
+    <button id="book-btn" class="bookButton" onclick="bookAppointment()">Book Appointment</button>
+</div>
+
 
     <div id="booking-details" class="alert alert-success mt-4" style="display: none;">
         <h4>Booking Confirmation</h4>
@@ -179,22 +167,12 @@
     </div>
 </div>
 
+<p class="end">Copyright © 2024 HealthGuru &nbsp;|&nbsp; Prateek™. All rights reserved.</p>
 
-
-
-
-    
-    <p class="end">Copyright © 2024 HealthGuru &nbsp;|&nbsp; Prateek™. All rights reserved.</p>
-
-    <script src="consult.js"></script>
-    
+<script src="consult.js"></script>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jwt-decode/3.1.2/jwt-decode.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
