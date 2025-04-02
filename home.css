@@ -176,6 +176,46 @@ nav .desktop-nav {
 
 
 
+.all_images .box1 p {
+    text-align: center;
+    padding: 15px;
+}
+
+.box1 {
+    margin: 30px;
+    overflow: hidden;
+}
+
+.all_images .box1 img {
+    width: 140px;
+}
+
+.all_images {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: #f5f5f7;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.all_images .box1:first-child {
+    margin-left: 55px;
+    padding-right: 10px;
+}
+
+.all_images .box1 {
+    margin-left: 0px;
+    padding-right: 0px;
+}
+
+.box1 a {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    text-decoration: none;
+}
+
+
 /*---------------------------------------------------------*/
 
 .emi {
