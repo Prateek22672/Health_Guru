@@ -1,163 +1,135 @@
-// ============================
-// SPLASH SCREEN LOGIC
-// ============================
+ // ============================
+    // SPLASH SCREEN LOGIC
+    // ============================
 
-const splashScreen = document.getElementById('splash-screen');
+    const splashScreen = document.getElementById('splash-screen');
+    const mainContent = document.querySelector('.container.mt-5');
 
-if (splashScreen) {
-    splashScreen.style.display = 'flex';
+    if (splashScreen) {
+        // Show the splash screen
+        splashScreen.style.display = 'flex';
 
-    setTimeout(() => {
-        splashScreen.style.opacity = '0';
-
+        // Set a timeout to fade out the splash screen
         setTimeout(() => {
-            splashScreen.style.display = 'none';
-        }, 1000);
-    }, 1600);
-}
+            splashScreen.style.opacity = '0'; // Start fading out
 
-// ============================
-// DISPLAY USER GREETING
-// ============================
-
-const greetingElement = document.getElementById('user-name');
-
-function displayGreeting() {
-    const name = localStorage.getItem('userName');
-// your code goes here
-    if (greetingElement) {
-        greetingElement.textContent = ` ${name}!`;
-    }
-    else{
-        greetingElement.textContent = `Welcome, Guest`;
-    }
-}
-
-// Show greeting on page load
-displayGreeting();
-
-// ============================
-// BUTTON NAVIGATION
-// ============================
-
-const createButton = document.getElementById("myButton");
-
-if (createButton) {
-    createButton.addEventListener("click", () => {
-        window.location.href = "create.html";
-    });
-}
-
-// ============================
-// GOOGLE SIGN-IN LOGIC
-// ============================
-
-function handleCredentialResponse(response) {
-    console.log("Google OAuth Token:", response.credential);
-
-    try {
-        // Decode the JWT token
-        const data = jwt_decode(response.credential);
-        console.log("Google User Data:", data);
-
-        // Extract user details
-        const userName = data.name || "Guest";
-        const userEmail = data.email || "N/A";
-        const userImage = data.picture || "";
-
-        // Store in localStorage
-        localStorage.setItem("userName", userName);
-        localStorage.setItem("userEmail", userEmail);
-
-        // Update greeting dynamically
-        displayGreeting();
-
-        // Display user info
-        displayUserInfo(userName, userEmail, userImage);
-
-    } catch (error) {
-        console.error("Error decoding Google token:", error);
-        alert("Failed to authenticate. Please try again.");
-    }
-}
-
-// ============================
-// DISPLAY USER INFO FUNCTION
-// ============================
-
-function displayUserInfo(name, email, image) {
-    const container = document.querySelector('.container.main');
-
-    // Remove existing user info to avoid duplication
-    const existingInfo = document.getElementById("user-info");
-    if (existingInfo) {
-        existingInfo.remove();
+            // After the fade-out transition, hide the splash screen and show the main content
+            setTimeout(() => {
+                splashScreen.style.display = 'none'; // Hide splash screen
+                mainContent.style.display = 'block'; // Show main content
+            }, 1000); // Match this duration with the CSS transition duration
+        }, 1600); // Duration to show the splash screen
     }
 
-    // Create user info element
-    const userInfo = document.createElement('div');
-    userInfo.id = "user-info";
-    userInfo.style.marginTop = "20px";
-    userInfo.style.textAlign = "center";
-    userInfo.innerHTML = `
-        <h4>Welcome, ${name}</h4>
-        <p>Email: ${email}</p>
-        ${image ? `<img src="${image}" alt="Profile Image" width="100" />` : ""}
-    `;
+    // ============================
+    // DISPLAY USER GREETING
+    // ============================
 
-    if (container) {
-        container.appendChild(userInfo);
+    const greetingElement = document.getElementById('user-name');
+
+    function displayGreeting() {
+        const name = localStorage.getItem('userName') || "Guest";
+        if (greetingElement) {
+            greetingElement.textContent = name;
+        }
     }
-}
 
-// ============================
-// GOOGLE AUTH INITIALIZATION
-// ============================
+    // Show greeting on page load
+    displayGreeting();
 
-window.onload = function () {
-    google.accounts.id.initialize({
-        client_id: "YOUR_GOOGLE_CLIENT_ID",  // Replace with your Google Client ID
-        callback: handleCredentialResponse,
-    });
+    // ============================
+    // DEPARTMENT AND DOCTOR SELECTION LOGIC
+    // ============================
 
-    google.accounts.id.prompt();  // Display Google One Tap prompt
-};
-
-
-const doctors = {
-        "Apollo": ["Dr. Ananya Sharma", "Dr. Rajiv Mehta", "Dr. Priya Singh"],
-        "Fortis": ["Dr. Rahul Gupta", "Dr. Sneha Kapoor", "Dr. Vikram Rao"],
-        "Manipal": ["Dr. Pooja Nair", "Dr. Arjun Khanna", "Dr. Sandeep Roy"],
-        "AIIMS": ["Dr. Neha Malhotra", "Dr. Karan Patel", "Dr. Ritika Das"]
+    const doctorsByDepartment = {
+        "Apollo": {
+            "Orthopaedics": ["Dr. Ananya Sharma", "Dr. Rajiv Mehta"],
+            "Cardiology": ["Dr. Priya Singh", "Dr. Vikram Rao"],
+            "Neurology": ["Dr. Sneha Kapoor", "Dr. Karan Patel"],
+            "Gastroenterology": ["Dr. Arjun Khanna", "Dr. Sandeep Roy"],
+            "Dermatology": ["Dr. Neha Malhotra", "Dr. Ritika Das"]
+        },
+        "Fortis": {
+            "Orthopaedics": ["Dr. Rahul Gupta", "Dr. Sneha Kapoor"],
+            "Oncology": ["Dr. Vikram Rao", "Dr. Priya Singh"],
+            "Pediatrics": ["Dr. Ananya Sharma", "Dr. Karan Patel"],
+            "Nephrology": ["Dr. Arjun Khanna", "Dr. Sandeep Roy"],
+            "Endocrinology": ["Dr. Neha Malhotra", "Dr. Ritika Das"]
+        },
+        "Manipal": {
+            "Orthopaedics": ["Dr. Pooja Nair", "Dr. Arjun Khanna"],
+            "Pulmonology": ["Dr. Vikram Rao", "Dr. Priya Singh"],
+            "ENT": ["Dr. Sneha Kapoor", "Dr. Karan Patel"],
+            "Urology": ["Dr. Ananya Sharma", "Dr. Sandeep Roy"],
+            "Hepatology": ["Dr. Neha Malhotra", "Dr. Ritika Das"]
+        },
+        "AIIMS": {
+            "Orthopaedics": ["Dr. Neha Malhotra", "Dr. Karan Patel"],
+            "Radiology": ["Dr. Vikram Rao", "Dr. Priya Singh"],
+            "Psychiatry": ["Dr. Sneha Kapoor", "Dr. Arjun Khanna"],
+            "General Surgery": ["Dr. Ananya Sharma", "Dr. Sandeep Roy"],
+            "Gynecology": ["Dr. Neha Malhotra", "Dr. Ritika Das"]
+        }
     };
 
-    // Display doctor dropdown based on selected hospital
+    function showDepartmentDropdown() {
+        const hospital = document.getElementById("hospital").value;
+        const departmentDropdown = document.getElementById("department");
+        departmentDropdown.innerHTML = '<option value="">Choose...</option>';
+
+        const departments = {
+            "Apollo": ["Orthopaedics", "Cardiology", "Neurology", "Gastroenterology", "Dermatology"],
+            "Fortis": ["Orthopaedics", "Oncology", "Pediatrics", "Nephrology", "Endocrinology"],
+            "Manipal": ["Orthopaedics", "Pulmonology", "ENT", "Urology", "Hepatology"],
+            "AIIMS": ["Orthopaedics", "Radiology", "Psychiatry", "General Surgery", "Gynecology"]
+        };
+
+        if (departments[hospital]) {
+            departments[hospital].forEach(dept => {
+                const option = document.createElement("option");
+                option.value = dept;
+                option.textContent = dept;
+                departmentDropdown.appendChild(option);
+            });
+        }
+
+        // Call showDoctorDropdown to update the doctor dropdown based on the selected department
+        showDoctorDropdown();
+    }
+
     function showDoctorDropdown() {
         const hospital = document.getElementById('hospital').value;
+        const department = document.getElementById('department').value;
         const doctorContainer = document.getElementById('doctor-container');
         const doctorSelect = document.getElementById('doctor');
 
-        if (hospital) {
-            // Populate doctor dropdown
+        if (hospital && department) {
+            // Clear previous options
             doctorSelect.innerHTML = `<option value="">Choose...</option>`;
-            doctors[hospital].forEach(doctor => {
-                const option = document.createElement('option');
-                option.value = doctor;
-                option.textContent = doctor;
-                doctorSelect.appendChild(option);
-            });
+            
+            // Populate doctor dropdown based on selected hospital and department
+            const doctors = doctorsByDepartment[hospital][department];
+            if (doctors) {
+                doctors.forEach(doctor => {
+                    const option = document.createElement('option');
+                    option.value = doctor;
+                    option.textContent = doctor;
+                    doctorSelect.appendChild(option);
+                });
 
-            doctorContainer.style.display = 'block';  // Show doctor dropdown
+                doctorContainer.style.display = 'block';  // Show doctor dropdown
+            } else {
+                doctorContainer.style.display = 'none';  // Hide if no doctors found
+            }
+
+            // Reset time dropdown and booking button
+            document.getElementById('time-container').style.display = 'none';
+            document.getElementById('book-btn').style.display = 'none';
         } else {
             doctorContainer.style.display = 'none';
         }
-
-        // Reset time dropdown and booking button
-        document.getElementById('time-container').style.display = 'none';
-        document.getElementById('book-btn').style.display = 'none';
     }
 
-    // Display time slot dropdown when a doctor is selected
     function showTimeDropdown() {
         const doctor = document.getElementById('doctor').value;
         const timeContainer = document.getElementById('time-container');
