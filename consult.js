@@ -20,17 +20,20 @@ if (splashScreen) {
 // DISPLAY USER GREETING
 // ============================
 
-const greetingElement = document.getElementById('allx');
+const greetingElement = document.getElementById('user-name');
 
-// Function to display greeting
 function displayGreeting() {
-    const name = localStorage.getItem('userName') || "Guest";
+    const name = localStorage.getItem('userName');
+// your code goes here
     if (greetingElement) {
-        greetingElement.innerHTML = `Hello ${name},<br>`;
+        greetingElement.textContent = ` ${name}!`;
+    }
+    else{
+        greetingElement.textContent = `Welcome, Guest`;
     }
 }
 
-// Display greeting on page load
+// Show greeting on page load
 displayGreeting();
 
 // ============================
