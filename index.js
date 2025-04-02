@@ -17,10 +17,14 @@ if (splashScreen) {
 // ============================
 // FORM VALIDATION LOGIC
 // ============================
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
 
     const emailInput = document.getElementById("email").value.trim();
     const passwordInput = document.getElementById("pass").value.trim();
     const errorMessage = document.getElementById("error-message");
+
+    errorMessage.style.display = "none"; // Hide error message initially
 
     if (!emailInput || !passwordInput) {
         errorMessage.textContent = "Please fill in all fields.";
@@ -34,11 +38,9 @@ if (splashScreen) {
     }
 });
 
-
 // ============================
 // GOOGLE OAUTH LOGIC
 // ============================
-// GOOGLE OAUTH LOGIN
 function handleCredentialResponse(response) {
     console.log("Google OAuth Token:", response.credential);
 
@@ -57,6 +59,7 @@ function handleCredentialResponse(response) {
             console.error('Google Auth Error:', error);
             alert("Google authentication failed.");
         });
+}
 
 // ============================
 // CREATE BUTTON NAVIGATION LOGIC
