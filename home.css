@@ -318,21 +318,76 @@ nav .desktop-nav {
 
 
 
-
-
-.end {
-    border-top: 1px solid gray; /* Add a top border */
-    color: gray;
-    margin: 10px 150px; /* Add some space around the line */
-    padding-top: 20px;
-    padding-bottom: 50px;
-    display: flex;
-    padding-left: -50px;
+.footer {
+    background-color: #0D0D0D; /* Dark background */
+    color: white;
+    padding: 40px 10%;
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 300;
 }
 
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-section {
+    max-width: 250px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4A90E2; /* Optional brand color */
+}
+
+.footer-section hr {
+    border: 0.5px solid gray;
+    margin: 10px 0;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 20px;
+    margin-right: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: gray;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 8px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: gray;
+}
+
+.end {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: gray;
+    border-top: 1px solid gray;
+    padding-top: 10px;
+}
 
 @media (max-width: 768px) {
     .nav-container nav {
