@@ -197,6 +197,7 @@ nav .desktop-nav {
     background-color: #f5f5f7;
     margin-left: 0px;
     padding-left: 0px;
+    margin-top: 120px;
 }
 
 .all_images .box1:first-child {
@@ -252,8 +253,6 @@ nav .desktop-nav {
 
 
 #myButton {
-    position: relative;
-    left: 95px;
     color: white;
     background-color: black;
     border: none;
@@ -261,6 +260,8 @@ nav .desktop-nav {
     cursor: pointer;
     border-radius: 50px;
     width: 120px;
+    display: block;
+    margin: auto;
 }
 
 #splash-screen {
@@ -283,6 +284,7 @@ nav .desktop-nav {
     font-size: 57px;
     font-weight: 550;
     padding: 80px;
+    text-align: center;
 }
 
 .greetings {
@@ -290,14 +292,12 @@ nav .desktop-nav {
     color: black;
     font-family: "Roboto", sans-serif;
     font-family: 'Inter', sans-serif;
-    font-size: 35px;
+    font-size: 45px;
     font-weight: 550;
     line-height: 1.0834933333;
     display: block;
-    margin: 20px 0 20px 80px; /* Adds space from the top and bottom and moves it slightly to the right */
-    padding-left: 10px; /* Adds some spacing inside the element */
-    text-align: left; /* Ensures the text stays left-aligned */
     margin-top: 100px;
+    text-align: center;
 }
 
 .sub_greetings {
@@ -309,11 +309,9 @@ nav .desktop-nav {
     font-weight: 550;
     line-height: 1.0834933333;
     display: block;
-    margin: 100px 0 20px 80px; /* Adds space from the top and bottom and moves it slightly to the right */
-    padding-left: 10px; /* Adds some spacing inside the element */
-    text-align: left; /* Ensures the text stays left-aligned */
+    text-align: center; /* Ensures the text stays left-aligned */
     margin-top: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 27px;
 }
 
 
