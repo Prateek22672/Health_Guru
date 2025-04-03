@@ -278,9 +278,19 @@ nav .desktop-nav {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
+h1 {
     color: #333;
+    font-size: 25px;
+    text-align: center;
 }
+
+ h2{
+     color: #333;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+ }
 
 .reminder-form {
     margin-bottom: 20px;
@@ -367,10 +377,9 @@ input[type="checkbox"] {
     font-weight: 550;
     line-height: 1.0834933333;
     display: block;
-    margin: 20px 0 20px 80px; /* Adds space from the top and bottom and moves it slightly to the right */
-    padding-left: 10px; /* Adds some spacing inside the element */
-    text-align: left; /* Ensures the text stays left-aligned */
-    margin-top: 100px;
+    text-align: center; /* Ensures the text stays left-aligned */
+    margin-top: 70px;
+    margin-bottom: 40px;
 }
 
 .sub_greetings {
