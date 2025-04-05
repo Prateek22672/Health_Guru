@@ -100,3 +100,15 @@ google.accounts.id.initialize({
 });
 
 google.accounts.id.prompt();  // Display Google One Tap prompt
+
+
+
+    window.addEventListener('scroll', function () {
+        const section = document.querySelector('.animate-on-scroll');
+        const sectionTop = section.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+
+        if (sectionTop < screenPosition) {
+            section.classList.add('visible');
+        }
+    });
